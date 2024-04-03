@@ -24,7 +24,7 @@ const credentials = {
 // Register with the test server
 app.post('/register', async (req, res) => {
   try {
-    const response = await axios.post(${testServerUrl}/register, registrationDetails);
+    const response = await axios.post('${testServerUrl}/register, registrationDetails');
     credentials.clientID = response.data.clientID;
     credentials.clientSecret = response.data.clientSecret;
     console.log('Registration successful:', response.data);
@@ -38,7 +38,7 @@ app.post('/register', async (req, res) => {
 // Get authorization token
 app.post('/auth', async (req, res) => {
   try {
-    const response = await axios.post(${testServerUrl}/auth, credentials);
+    const response = await axios.post('${testServerUrl}/auth, credentials');
     const authToken = response.data['access_token'];
     console.log('Authorization token received:', authToken);
     res.json({ authToken });
@@ -54,7 +54,7 @@ let numberWindow = [];
 // Helper function to get numbers from the test server
 const getNumbersFromTestServer = async (type) => {
   try {
-    const response = await axios.get(${testServerUrl}/${type});
+    const response = await axios.get('${testServerUrl}/${type}');
     return response.data.numbers;
   } catch (error) {
     console.error('Error fetching numbers from test server:', error);
